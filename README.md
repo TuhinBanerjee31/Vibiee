@@ -2,9 +2,8 @@
 # Introduction
 
 VIBIEE is a sleek and modern music player application built using React Native. It offers a responsive design that enhances the music listening experience on mobile devices. Whether you're commuting, working out, or simply relaxing, VIBIEE provides a seamless way to enjoy your favorite tunes.
-![Screenshot](screenshot.jpg)
-![Screenshot](screenshot2.jpg)
-![Screenshot](screenshot3.jpg)
+![Screenshot](screenshot.png)
+![Screenshot](screenshot2.png)
 
 # Installation
 
