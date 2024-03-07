@@ -1,0 +1,52 @@
+/* eslint-disable prettier/prettier */
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Slider from '@react-native-community/slider';
+import TrackPlayer, { useProgress } from 'react-native-track-player';
+
+export default function SongSlider() {
+    const {position, duration} = useProgress();
+
+  return (
+    <View>
+      <Slider
+      value={position}
+      minimumValue={0}
+      maximumValue={duration}
+      thumbTintColor="#F7933D"
+      minimumTrackTintColor="#F7933D"
+      maximumTrackTintColor="#F7933D"
+      style={styles.sliderStyle}
+      onSlidingComplete={async(value) => {
+        await TrackPlayer.seekTo(value);
+      }}
+      />
+      <View style={styles.timeContainer}>
+        <Text style={styles.timeStyle}>
+            {new Date(position * 1000).toISOString().substring(15, 19)}
+        </Text>
+
+        <Text style={styles.timeStyle}>
+            {new Date((duration - position) * 1000).toISOString().substring(15, 19)}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  sliderStyle: {
+    width: 400,
+    height: 40,
+    marginTop: 25,
+    flexDirection: 'row',
+  },
+  timeContainer: {
+    width: 400,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  time: {
+    color: '#fff',
+  },
+});
